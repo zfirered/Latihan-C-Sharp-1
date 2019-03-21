@@ -32,11 +32,13 @@ namespace Latihan_C_Sharp_1
             comm.Connection = Database.conn;
             comm.CommandText = "select * from DataRandom";
 
-            using (SQLiteDataReader rd = comm.ExecuteReader())
+            using (SQLiteDataAdapter da = new SQLiteDataAdapter(comm))
             {
+                DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                dt.Load(rd);
-                rd.Close();
+                ds.Reset();
+                da.Fill(ds);
+                dt = ds.Tables[0];
                 dataGridView1.DataSource = dt;
             }
         }
