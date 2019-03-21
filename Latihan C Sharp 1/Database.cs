@@ -9,7 +9,7 @@ namespace Latihan_C_Sharp_1
 {
     class Database
     {
-        public static SQLiteConnection conn = null;
+        public static SQLiteConnection conn;
         public void Connection_Today()
             {
             conn = new SQLiteConnection("Data Source=Database\\Database1.db;version=3;Password=Pokemon400");
